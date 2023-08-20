@@ -41,6 +41,15 @@ function addPrice(productPrice) {
     totalPrice = max + productPrice;
     maxStringElement.innerHTML = totalPrice.toFixed(2);
 
+    if (totalPrice > 0) {
+        document.getElementById('purchaseButton').addEventListener('click', function(){
+            my_modal_1.showModal()
+        })
+    }
+    else {
+        document.getElementById('purchaseButton') = 'disabled';
+    }
+
     if (totalPrice >= 200) {
         couponBox.removeAttribute('disabled');
         couponBtn.removeAttribute('disabled');
