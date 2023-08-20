@@ -67,5 +67,30 @@ function addPrice(productPrice) {
     max = parseFloat(maxString);
     productPrice = parseFloat(productPrice);
     totalPrice = max + productPrice;
-    maxStringElement.innerHTML = totalPrice;
+    maxStringElement.innerHTML = totalPrice.toFixed(2);
+
+    if (totalPrice >= 200) {
+        couponBox.removeAttribute('disabled');
+        couponBtn.removeAttribute('disabled');
+        
+        document.getElementById('couponBtn').addEventListener('click', function(){
+            const coupon = document.getElementById('couponBox');
+            const couponValue = coupon.value;
+
+            if(couponValue === "SELL200") {
+                discountPriceElement = document.getElementById('discountPrice');
+                discountPrice = totalPrice * 20 / 100;
+                discountPriceElement.innerHTML = discountPrice.toFixed(2);
+
+                grandPriceElement = document.getElementById('grandPrice')
+                grandPrice = totalPrice - discountPrice;
+                grandPriceElement.innerHTML = grandPrice.toFixed(2);
+            }
+        })
+
+    }
+    else {
+        couponBox.setAttribute('disabled', 'disabled');
+        couponBtn.setAttribute('disabled', 'disabled');
+    }
 }
