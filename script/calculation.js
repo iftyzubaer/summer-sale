@@ -1,57 +1,15 @@
-document.getElementById('prod1').addEventListener('click', function(){
-    title=title1.innerHTML
-    price=price1.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod2').addEventListener('click', function(){
-    title=title2.innerHTML
-    price=price2.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod3').addEventListener('click', function(){
-    title=title3.innerHTML
-    price=price3.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod4').addEventListener('click', function(){
-    title=title4.innerHTML
-    price=price4.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod5').addEventListener('click', function(){
-    title=title5.innerHTML
-    price=price5.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod6').addEventListener('click', function(){
-    title=title6.innerHTML
-    price=price6.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod7').addEventListener('click', function(){
-    title=title7.innerHTML
-    price=price7.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod8').addEventListener('click', function(){
-    title=title8.innerHTML
-    price=price8.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
-document.getElementById('prod9').addEventListener('click', function(){
-    title=title9.innerHTML
-    price=price9.innerHTML
-    addToCart(title);
-    addPrice(price);
-});
+// Add event listeners to product elements
+for (let i = 1; i <= 9; i++) {
+    const prodElement = document.getElementById(`prod${i}`);
+    if (prodElement) {
+        prodElement.addEventListener('click', function() {
+            const title = document.getElementById(`title${i}`).innerHTML;
+            const price = document.getElementById(`price${i}`).innerHTML;
+            addToCart(title);
+            addPrice(price);
+        });
+    }
+}
 
 function addToCart(title) {
     const storageBox = document.getElementById('storage-box');
