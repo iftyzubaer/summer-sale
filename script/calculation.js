@@ -19,6 +19,20 @@ function addToCart(title) {
     storageBox.appendChild(p);
 }
 
+// Add an event listener to the close button
+document.getElementById('closeBtn').addEventListener('click', function() {
+    const storageBox = document.getElementById('storage-box');
+    const couponBox = document.getElementById('couponBox');
+    const totalPrice = document.getElementById('totalPrice');
+    const discountPrice = document.getElementById('discountPrice');
+    const grandPrice = document.getElementById('grandPrice');
+    storageBox.innerHTML = '';
+    couponBox.value = '';
+    totalPrice.innerHTML = '00.00';
+    discountPrice.innerHTML = '00.00';
+    grandPrice.innerHTML = '00.00';
+});
+
 function addPrice(productPrice) {
     maxStringElement = document.getElementById('totalPrice');
     maxString = maxStringElement.innerHTML;
